@@ -34,7 +34,8 @@ Rails.application.routes.draw do
   resources :flights
   resources :planes
   resources :users
-  
+  resources :reservations
+
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
