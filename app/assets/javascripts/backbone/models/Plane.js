@@ -9,8 +9,12 @@ app.Plane = Backbone.Model.extend({
     column: null
   },
 
+  getFlights: function() {
+    this.flights = app.flights.where('plane_id', this)
+    this.save()
+  }
+
 });
 
- 
 
 
