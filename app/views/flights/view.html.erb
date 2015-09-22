@@ -20,10 +20,14 @@
   <h2>{{rows}}</h2> 
   <h2>{{columns}}</h2> 
   <p>
-  {[ for ( var i = 1; i < rows+1; i++ ) { ]} 
-        <div id="row">
-    {[ for (var j = 1; j < columns+1; j++) { ]}
-        <div id="seat">{{ [i ,j] }}</div>
+
+  {[ for ( var i = 1; i < columns+1; i++ ) { ]} 
+        <div id="columns">
+    {[ for (var j = 0; j < rows+1; j++ ) { ]}
+      {[ var letter = 65 +j ]}
+        {[ var l = String.fromCharCode(letter) ]}
+        <div id="seat">{{ [i , l] }}</div>
+        
     {[ } ]}
         </div>
   {[ } ]}
