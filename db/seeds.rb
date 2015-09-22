@@ -1,7 +1,7 @@
 User.destroy_all
-u1 = User.create :name => 'Zac', :email => 'zac@zam.com'
-u2 = User.create :name => 'Miles', :email => 'miles@zam.com'
-u3 = User.create :name => 'Alex', :email => 'alex@zam.com'
+u1 = User.create :name => 'Zac', :email => 'zac@zam.com', :password => 'chicken'
+u2 = User.create :name => 'Miles', :email => 'miles@zam.com', :password => 'chicken'
+u3 = User.create :name => 'Alex', :email => 'alex@zam.com', :password => 'chicken'
 
 Flight.destroy_all
 f1 = Flight.create :number => 'ZAM1', :origin => 'SYD', :destination => 'Paradise'
