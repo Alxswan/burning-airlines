@@ -13,7 +13,6 @@ app.Flight = Backbone.Model.extend({
 
   getReservations: function() {
     this.reservations = app.reservations.where('flight_id', this)
-    this.save()
   }
 
 });

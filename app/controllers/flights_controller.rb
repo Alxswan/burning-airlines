@@ -3,6 +3,10 @@ class FlightsController < ApplicationController
 
   def home
   end
+  
+  def index_backbone
+    
+  end
 
   # GET /flights
   # GET /flights.json

@@ -1,4 +1,10 @@
 $(function (){
+
+  _.templateSettings = {
+    evaluate : /\{\[([\s\S]+?)\]\}/g,     // {[ console.log("Hello"); ]} - runs
+    interpolate : /\{\{([\s\S]+?)\}\}/g   // {{ key }} - interpolates
+  };
+
   app.planes = new app.Planes();
   app.flights = new app.Flights();
   app.reservations = new app.Reservations();
@@ -11,6 +17,10 @@ $(function (){
 
       app.planes.fetch().done(function() {
 
+        app.router = new app.Router();
+         Backbone.history.start({pushState: true});
+
+
         app.planes.each(function(plane){
         plane.getFlights();
         });
@@ -18,7 +28,10 @@ $(function (){
         app.flights.each(function(flight){
         flight.getReservations();
         });
+
+
       });
     });  
     }); 
+
   });
