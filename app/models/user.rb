@@ -9,5 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class User < ActiveRecord::Base  
+class User < ActiveRecord::Base
+  has_many :reservations
+  has_many :flights, :through => :reservations
 end

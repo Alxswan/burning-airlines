@@ -11,4 +11,8 @@
 #
 
 class Reservation < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :flight
+  belongs_to :user
+  has_one :plane, :through => :flight
 end
