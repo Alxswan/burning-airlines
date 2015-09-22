@@ -1,5 +1,7 @@
 class PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin, :only => [:index, :edit, :new]
+
 
   # GET /planes
   # GET /planes.json
@@ -72,4 +74,8 @@ class PlanesController < ApplicationController
     def plane_params
       params.require(:plane).permit(:name, :rows, :columns)
     end
+    
+    def check_if_admin
+    redirect_to root_path unless @current_user.present? && @current_user.admin?
+  end
 end

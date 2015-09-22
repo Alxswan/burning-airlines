@@ -1,5 +1,5 @@
 User.destroy_all
-u1 = User.create :name => 'Zac', :email => 'zac@zam.com', :password => 'chicken'
+u1 = User.create :name => 'Zac', :email => 'zac@zam.com', :password => 'chicken', :admin => true
 u2 = User.create :name => 'Miles', :email => 'miles@zam.com', :password => 'chicken'
 u3 = User.create :name => 'Alex', :email => 'alex@zam.com', :password => 'chicken'
 

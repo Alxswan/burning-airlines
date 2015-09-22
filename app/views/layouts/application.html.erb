@@ -28,8 +28,8 @@
         <li><%= link_to 'Home', root_path %></li>
         <% if @current_user.present? %>
         <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
-        <li><%= link_to "Logged in as #{ @current_user.first_name }"%></li>
-        <li><%= link_to "Log out #{@current_user.first_name}", login_path, :method => 'delete'%></li>
+        <li><%= link_to "Logged in as #{ @current_user.name }"%></li>
+        <li><%= link_to "Log out #{@current_user.name}", login_path, :method => 'delete'%></li>
         <% else %>
         <li><%= link_to 'Create Account', new_user_path %></li>
         <li><%= link_to 'Log in', login_path %></li>
