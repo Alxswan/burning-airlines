@@ -1,6 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Flights</h1>
+<h2>Choose a Flight</h2>
+
+<% if  !@flights_results.empty? %>
+  <ul>
+      <% @flights_results.each do |flight| %>
+       
+            <li>
+                <%= link_to flight.number, flight_path(flight) %>
+            </li>
+        
+      <% end %>
+  </ul>
+
+<% elsif @flights_results.empty?%>
+
+    <h3>No homes found</h3>
+
+    <%= link_to 'Back to search', root_path %>
+
+
+<h1> Flights</h1>
 
 <table>
   <thead>
@@ -33,3 +53,5 @@
 <br>
 
 <%= link_to 'New Flight', new_flight_path %>
+
+<% end %>

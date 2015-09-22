@@ -1,10 +1,19 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
+  def home
+  end
+
   # GET /flights
   # GET /flights.json
   def index
     @flights = Flight.all
+
+    if params[:search] != ""
+      @flights_results = Flight.where("origin ILIKE ? OR destination ILIKE ?", "%#{ params[:search] }%", "%#{ params[:search] }%")
+    else
+      @flights_results = []
+    end
   end
 
   # GET /flights/1
