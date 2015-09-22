@@ -1,11 +1,13 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_admin, :only => [:index, :edit, :new]
+
 
   def home
   end
   
   def index_backbone
-    
+
   end
 
   # GET /flights
@@ -84,4 +86,8 @@ class FlightsController < ApplicationController
     def flight_params
       params.require(:flight).permit(:number, :origin, :destination, :date, :plane_id)
     end
+
+    def check_if_admin
+    redirect_to root_path unless @current_user.present? && @current_user.admin?
+  end
 end
