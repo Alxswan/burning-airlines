@@ -29,7 +29,6 @@ $(function (){
         flight.getReservations();
         });
 
-
       });
     });  
     }); 

@@ -14,7 +14,7 @@ app.FlightListView = Backbone.View.extend({
 		this.$el.html(flightList)
 		this.$el.appendTo('#flights');
 	},
-	showFlight: function(){
+		showFlight: function(){
 		app.router.navigate('flights/' + this.model.get('id'), true)
 	}
 })

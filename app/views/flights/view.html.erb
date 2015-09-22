@@ -11,5 +11,26 @@
 </script>
 
 <script type="template/text" id="flightView">
-	<h3>{{number}}</h3>	
+  <h3>{{number}}</h3> 
+
+</script>
+
+<script type="template/text" id="planeView">
+  <h3>{{name}}</h3> 
+  <h2>{{rows}}</h2> 
+  <h2>{{columns}}</h2> 
+  <p>
+  {[ for ( var i = 1; i < rows+1; i++ ) { ]} 
+        <div id="row">
+    {[ for (var j = 1; j < columns+1; j++) { ]}
+        <div id="seat">{{ [i ,j] }}</div>
+    {[ } ]}
+        </div>
+  {[ } ]}
+
+  </p>
+  <div id="plane">
+
+
+  </div>
 </script>
