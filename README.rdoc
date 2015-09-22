@@ -9,6 +9,19 @@ Things you may want to cover:
 
 * System dependencies
 
+## Gem dependencies
+```
+gem 'pry-rails'
+
+//make sure pry rails is in the development section!
+
+gem 'geocoder'
+gem 'rails-backbone', 3.2.0.0
+gem 'bootstrap-sass'
+
+```
+# add those to you gem file (not in the development section)
+
 * Configuration
 
 * Database creation
