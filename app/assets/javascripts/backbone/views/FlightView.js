@@ -10,13 +10,46 @@ app.FlightView = Backbone.View.extend({
   },
 
   book: function() {
+
+      var flight = this.model
+      var reservationsArr = this.model.reservations
+      var booking = false
+
+      var userReservations = app.reservations.where({
+        flight_id: flight.get("id"), 
+        user_id: app.session.get("id")
+      });
+
+      if ( userReservations.length === 0 ) {
         app.reservation = new app.Reservation({
           user_id: app.session.get('id'),
-          flight_id: this.model.get('id'),
-          seat: $('.reserve').attr('id')
-       })    
+          flight_id: flight.get('id'),
+          seat: $('.reserveUser').attr('id')
+        })   
+        
+        app.reservation.save();
+      }
+      // debugger;
+      // _.each(reservationsArr, function(reservation){
 
-        app.reservation.save()
+      //     if ( reservation.attributes.user_id === app.session.get('id') ) { 
+      //       booking = true
+      //       // debugger;
+      //     } 
+      //     if ( booking === false ) {
+
+      //       app.reservation = new app.Reservation({
+      //           user_id: app.session.get('id'),
+      //           flight_id: flight.get('id'),
+      //           seat: $('.reserveUser').attr('id')
+      //        })   
+
+      //       app.reservation.save()
+      //       // this.reservations.add( app.reservation );
+
+      //     }
+
+      // })       
   },
 
 	render: function( plane ){
@@ -30,17 +63,30 @@ app.FlightView = Backbone.View.extend({
   listenForClick: function() {
       $( "#plane").delegate(".seat", "click", function (e) {
         e.preventDefault();
-          $(this).toggleClass("reserve");
+        if ( $('div').hasClass('reserveUser') ) {
+          $('div').removeClass('reserveUser')
+          $('div').find('p').remove()
+        } 
+          if ( !$(this).hasClass('booked') ) {
+            var current_user = app.session.get('name')
+            if ($(this).has('p').length ) {
+              $(this).find('p').remove()
+            } else {
+              $(this).append('<p>' + current_user + '</p>')
+            }
+
+            $(this).toggleClass("reserveUser");
+        }
       })
   },
 
   allReservations: function() {
-    var flight = this.model
-    var reservationsArray = flight.reservations.collection
-    var reservationsArr = reservationsArray.models
+
+
+    var reservationsArr = this.model.reservations
     _.each(reservationsArr, function(reservation){
       var seat_name = reservation.attributes.seat
-      var s = $('#' + seat_name).css('background-color', 'grey')
+      var s = $('#' + seat_name).addClass('booked')
     })
   }
 

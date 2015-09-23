@@ -8,7 +8,8 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @new_reservation = Reservation.create reservation_params
+    user_reservations = Reservation.where({ flight_id: params[:flight_id], user_id: params[:user_id] })
+    @new_reservation = Reservation.create reservation_params if user_reservations.empty?
   end
 
   def update

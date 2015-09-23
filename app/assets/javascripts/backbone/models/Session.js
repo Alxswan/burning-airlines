@@ -6,6 +6,7 @@ app.Session = Backbone.Model.extend({
   defaults:  {
     id: null
   }
+
 });
 
 
