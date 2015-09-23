@@ -18,6 +18,7 @@ class FlightsController < ApplicationController
     else
       @flights_results = []
     end
+
   end
 
   # GET /flights/1

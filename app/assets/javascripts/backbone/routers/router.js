@@ -28,12 +28,12 @@ app.Router = Backbone.Router.extend({
 		flightView.listenForClick()
 		flightView.allReservations();
 		
-		// setInterval(function () {
-		// 		app.reservations.fetch().done(function() {
-	 //    	flightView.allReservations();
-	 //   	})
-	 //    	console.log("checking now")
-	 //  }, 2000);
+		setInterval(function () {
+				app.reservations.fetch().done(function() {
+	    	flightView.allReservations();
+	   	})
+	    	console.log("checking now")
+	  }, 2000);
 		
 	},
 
