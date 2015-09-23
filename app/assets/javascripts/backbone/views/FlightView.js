@@ -25,7 +25,6 @@ app.FlightView = Backbone.View.extend({
 		var flight = flightHtml({ flight: this.model.toJSON(), plane: plane.toJSON() } )
     this.$el.html( flight )
 
-
   },
 
   listenForClick: function() {
@@ -40,7 +39,8 @@ app.FlightView = Backbone.View.extend({
     var reservationsArray = flight.reservations.collection
     var reservationsArr = reservationsArray.models
     _.each(reservationsArr, function(reservation){
-      
+      var seat_name = reservation.attributes.seat
+      var s = $('#' + seat_name).css('background-color', 'grey')
     })
   }
 
