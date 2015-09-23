@@ -11,30 +11,27 @@
 </script>
 
 <script type="template/text" id="flightView">
-  <h3>{{number}}</h3> 
+  <h3>this is the plane number {{flight.number}}</h3> 
 
-</script>
-
-<script type="template/text" id="planeView">
-  <h3>{{name}}</h3> 
-  <h2>{{rows}}</h2> 
-  <h2>{{columns}}</h2> 
+  <h3>this is the plane name{{plane.name}}</h3> 
+  <h2>this is the plane rows{{plane.rows}}</h2> 
+  <h2>this is the plane cols{{plane.columns}}</h2> 
   <div id="plane">
-  
-    {[ for ( var i = 1; i < columns+1; i++ ) { ]} 
+
+    {[ for ( var i = 1; i < plane.columns+1; i++ ) { ]} 
           <div class="columns">
-      {[ for (var j = 0; j < rows+1; j++ ) { ]}
+      {[ for (var j = 0; j < plane.rows+1; j++ ) { ]}
         {[ var letter = 65 +j ]}
           {[ var l = String.fromCharCode(letter) ]}
-          <div class="seat" id="{{i+l}}">{{ i + l }}</div>
-          
+          <div class="seat" id="{{i+l}}">{{ i + l }}</div>      
       {[ } ]}
           </div>
     {[ } ]}
 
   </div>
-  <div id="plane">
+  <button>Reserve</button>
+</script>
 
-
-  </div>
+<script type="template/text" id="planeView">
+ 
 </script>

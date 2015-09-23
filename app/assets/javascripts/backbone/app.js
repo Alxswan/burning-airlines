@@ -8,7 +8,7 @@ $(function (){
   app.planes = new app.Planes();
   app.flights = new app.Flights();
   app.reservations = new app.Reservations();
-  // app.session = new app.Session();
+  app.session = new app.Session();
 
   
   app.reservations.fetch().done(function() {
@@ -17,7 +17,7 @@ $(function (){
 
       app.planes.fetch().done(function() {
         
-        // app.session.fetch().done(function(){
+        app.session.fetch().done(function(){
         
           app.router = new app.Router();       
           Backbone.history.start({pushState: true});
@@ -28,7 +28,7 @@ $(function (){
 
           app.flights.each(function(flight){
             flight.getReservations();
-          // });
+          });
         });
       });
     });  
