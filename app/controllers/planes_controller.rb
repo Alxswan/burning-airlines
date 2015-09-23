@@ -1,6 +1,6 @@
 class PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin, :only => [:index, :edit, :new]
+  before_action :check_if_admin, :only => [:edit, :new]
 
 
   # GET /planes

@@ -2,6 +2,10 @@ class SessionController < ApplicationController
   def new
   end
 
+  def index
+    render :json => @current_user
+  end
+
   def create
     user = User.find_by :email => params[:email]
 

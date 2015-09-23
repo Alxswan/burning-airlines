@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   resources :users
   resources :reservations
 
+  get '/session' => 'session#index'
   get '/results' => 'flights#view'
   get '/login' => 'session#new'
   post '/login' => 'session#create'

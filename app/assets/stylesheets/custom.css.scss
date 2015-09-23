@@ -2,9 +2,17 @@
 @import "bootstrap";
 
 
-#seat {
+.seat {
   display: inline-block;
   height: 100px;
   width: 100px;
   border: 1px solid black;
+}
+
+.reserve {
+  background-color: green;
+}
+
+.booked {
+  background-color: grey;
 }

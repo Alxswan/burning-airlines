@@ -19,20 +19,20 @@
   <h3>{{name}}</h3> 
   <h2>{{rows}}</h2> 
   <h2>{{columns}}</h2> 
-  <p>
-
-  {[ for ( var i = 1; i < columns+1; i++ ) { ]} 
-        <div id="columns">
-    {[ for (var j = 0; j < rows+1; j++ ) { ]}
-      {[ var letter = 65 +j ]}
-        {[ var l = String.fromCharCode(letter) ]}
-        <div id="seat">{{ [i , l] }}</div>
-        
+  <div id="plane">
+  
+    {[ for ( var i = 1; i < columns+1; i++ ) { ]} 
+          <div class="columns">
+      {[ for (var j = 0; j < rows+1; j++ ) { ]}
+        {[ var letter = 65 +j ]}
+          {[ var l = String.fromCharCode(letter) ]}
+          <div class="seat" id="{{i+l}}">{{ i + l }}</div>
+          
+      {[ } ]}
+          </div>
     {[ } ]}
-        </div>
-  {[ } ]}
 
-  </p>
+  </div>
   <div id="plane">
 
 

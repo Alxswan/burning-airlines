@@ -11,4 +11,11 @@ app.PlaneView = Backbone.View.extend({
     this.$el.html( plane );
   },
 
+  click: function() {
+    $( "#plane").delegate(".seat", "click", function (e) {
+      e.preventDefault();
+        $(this).toggleClass("reserve");
+    })
+  }
+
 })

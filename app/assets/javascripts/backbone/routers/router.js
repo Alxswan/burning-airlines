@@ -32,6 +32,7 @@ app.Router = Backbone.Router.extend({
 
 		var planeView = new app.PlaneView({model: plane})
 		planeView.render();
+		planeView.click();
 	}
 
 });

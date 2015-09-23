@@ -16,7 +16,6 @@ app.FlightView = Backbone.View.extend({
 	},
 
   showPlane: function(){
-    console.log('click')
     app.router.navigate('planes/' + this.model.get('plane_id'), true)
   }
 })

@@ -1,13 +1,11 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_admin, :only => [:index, :edit, :new]
-
+  before_action :check_if_admin, :only => [:edit, :new]
 
   def home
   end
   
   def index_backbone
-
   end
 
   # GET /flights
