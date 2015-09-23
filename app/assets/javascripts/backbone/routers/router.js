@@ -25,6 +25,8 @@ app.Router = Backbone.Router.extend({
 		var flightView = new app.FlightView({ model: flight });
 
 		flightView.render( plane )
+		flightView.listenForClick()
+		flightView.allReservations()
 	},
 
 	// viewPlane: function(id) {

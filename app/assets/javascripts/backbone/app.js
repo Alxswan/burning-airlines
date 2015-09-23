@@ -29,6 +29,7 @@ $(function (){
           app.flights.each(function(flight){
             flight.getReservations();
           });
+
         });
       });
     });  
