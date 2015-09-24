@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.Reservation = Backbone.Model.extend({
-  urlRoot: '/reservations',
+  urlRoot: '/api/reservations',
 
   defaults:  {
     flight_id: null,  

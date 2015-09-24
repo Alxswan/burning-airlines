@@ -3,28 +3,26 @@ class FlightsController < ApplicationController
   before_action :check_if_admin, :only => [:edit, :new]
 
   def home
-  end
-  
-  def index_backbone
+    redirect_to "/results"
   end
 
   # GET /flights
   # GET /flights.json
   def index
     @flights = Flight.all
-
     if params[:search] != ""
-      @flights_results = Flight.where("origin ILIKE ? OR destination ILIKE ?", "%#{ params[:search] }%", "%#{ params[:search] }%")
+      @flights = Flight.where("origin ILIKE ? OR destination ILIKE ?", "%#{ params[:search] }%", "%#{ params[:search] }%")
+      # binding.pry
+      # render :json => @flights_results
     else
       @flights_results = []
     end
-
   end
 
   # GET /flights/1
   # GET /flights/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /flights/new
   def new

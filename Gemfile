@@ -34,6 +34,7 @@ gem "rails-backbone"
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'geocoder'
 gem 'pg'
+gem 'gon'
 
 gem 'rails_12factor', group: :production 
 

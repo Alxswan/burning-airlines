@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.Flight = Backbone.Model.extend({
-  urlRoot: '/flights',
+  urlRoot: '/api/flights',
 
   defaults:  {
     number: null,
@@ -12,7 +12,6 @@ app.Flight = Backbone.Model.extend({
   },
 
   getReservations: function() {
-    debugger;
     this.reservations = app.reservations.where({flight_id: this.id})
   }
 

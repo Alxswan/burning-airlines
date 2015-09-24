@@ -31,10 +31,13 @@
 Rails.application.routes.draw do
 
   root :to => 'flights#home'
-  resources :flights
-  resources :planes
-  resources :users
-  resources :reservations
+  
+  scope '/api' do
+    resources :flights
+    resources :planes
+    resources :users
+    resources :reservations
+  end
 
   get '/session' => 'session#index'
   get '/results' => 'flights#view'

@@ -1,6 +1,6 @@
 var app = app || {};
 
 app.Planes = Backbone.Collection.extend({
-  url: '/planes',
+  url: '/api/planes',
   model: app.Plane,
 });

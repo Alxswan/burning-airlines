@@ -8,7 +8,8 @@
       <% @flights_results.each do |flight| %>
        
             <li>
-                <%= link_to flight.number, flight_path(flight) %>
+                <%#= link_to flight.number, "/flights/#{ flight.id }" %>
+                <p data-url="/flights/<%= flight.id %>"><%= flight.number %></p>
             </li>
         
       <% end %>

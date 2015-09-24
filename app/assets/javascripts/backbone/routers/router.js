@@ -9,32 +9,36 @@ app.Router = Backbone.Router.extend({
 
 
 	index: function () {
-		var appView = new app.AppView({collection: app.flights});
+		var appView = new app.AppView({ collection: app.flights });
 		appView.render();
 	},
 
-	viewFlight: function(id) {
-		var flight = app.flights.get(id)
-		if (!flight) {
-			app.router.navigate('results',true);
-		} 
+	viewFlight: function(flight_id) {
+		if ( app.session.get('id') ) {
+			var flight = app.flights.get(flight_id)
+			if (!flight) {
+				app.router.navigate('results',true);
+			} 
 
-		var plane_id = flight.attributes.plane_id;
-		var plane = app.planes.get( plane_id );
+			var plane_id = flight.attributes.plane_id;
+			var plane = app.planes.get( plane_id );
 
-		var flightView = new app.FlightView({ model: flight });
+			var flightView = new app.FlightView({ model: flight });
 
-		flightView.render( plane )
-		flightView.listenForClick()
-		flightView.allReservations();
-		
-		setInterval(function () {
+			flightView.render( plane )
+			flightView.listenForClick()
+			flightView.allReservations();
+			
+			setInterval(function () {
 				app.reservations.fetch().done(function() {
-	    	flightView.allReservations();
-	   	})
-	    	console.log("checking now")
-	  }, 2000);
-		
+		    	flightView.allReservations();
+		   	})
+		    	console.log("checking now")
+		  }, 2000);
+		} else {
+			alert('your not logged in sorry cant do that.')
+			return;
+		}
 	},
 
 	// viewPlane: function(id) {

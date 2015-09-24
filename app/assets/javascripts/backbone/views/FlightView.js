@@ -9,11 +9,9 @@ app.FlightView = Backbone.View.extend({
       'click button': 'book',
   },
 
-  book: function() {
-
+  book: function( ) {
       var flight = this.model
       var reservationsArr = this.model.reservations
-      var booking = false
 
       var userReservations = app.reservations.where({
         flight_id: flight.get("id"), 
@@ -21,41 +19,24 @@ app.FlightView = Backbone.View.extend({
       });
 
       if ( userReservations.length === 0 ) {
+
         app.reservation = new app.Reservation({
           user_id: app.session.get('id'),
           flight_id: flight.get('id'),
           seat: $('.reserveUser').attr('id')
         })   
-        
+        alert('congrats')
         app.reservation.save();
-      }
-      // debugger;
-      // _.each(reservationsArr, function(reservation){
-
-      //     if ( reservation.attributes.user_id === app.session.get('id') ) { 
-      //       booking = true
-      //       // debugger;
-      //     } 
-      //     if ( booking === false ) {
-
-      //       app.reservation = new app.Reservation({
-      //           user_id: app.session.get('id'),
-      //           flight_id: flight.get('id'),
-      //           seat: $('.reserveUser').attr('id')
-      //        })   
-
-      //       app.reservation.save()
-      //       // this.reservations.add( app.reservation );
-
-      //     }
-
-      // })       
+      } else { 
+        alert('you have already made a reservation') 
+      }     
   },
 
 	render: function( plane ){
 		var flightTemplate = $('#flightView').html()
 		var flightHtml = _.template(flightTemplate);
 		var flight = flightHtml({ flight: this.model.toJSON(), plane: plane.toJSON() } )
+
     this.$el.html( flight )
 
   },

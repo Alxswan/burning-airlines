@@ -1,9 +1,18 @@
 <div id="main"></div>
 
+<script>
+  app.userID = "<%= Flight.all %>";
+</script>
+
+
 <script type="template/text" id="appViewTemplate">
 	<h2>Flight Results</h2>
 
 	<ul id="flights"></ul>	
+
+<form>
+  <input type="text" placeholder="SEARCH">
+</form>
 </script>
 
 <script type="template/text" id="flightListView">
@@ -14,9 +23,9 @@
 
   <h3>this is the plane number {{flight.number}}</h3> 
 
-  <h3>this is the plane name{{plane.name}}</h3> 
-  <h2>this is the plane rows{{plane.rows}}</h2> 
-  <h2>this is the plane cols{{plane.columns}}</h2> 
+  <h3>this is the plane name {{plane.name}}</h3> 
+  <h2>this is the plane rows {{plane.rows}}</h2> 
+  <h2>this is the plane cols {{plane.columns}}</h2> 
   <div id="plane">
     {[ for ( var i = 1; i < plane.columns+1; i++ ) { ]} 
           <div class="columns">
